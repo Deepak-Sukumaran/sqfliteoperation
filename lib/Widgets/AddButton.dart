@@ -6,7 +6,9 @@ import 'package:sqfliteoperation/UI/Contacts.dart';
 import '../DataBase/SQLoperation.dart';
 
 class AddButton extends StatefulWidget {
-  const AddButton({super.key});
+   final Function onCreateContact;
+
+  AddButton(this.onCreateContact);
 
   @override
   State<AddButton> createState() => _AddButtonState();
@@ -97,7 +99,7 @@ class _AddButtonState extends State<AddButton> {
   // to add a new data to the sqflite DB
  Future<void> createContact() async{
   await SQLoperation.create_contact(nameController.text, numberController.text);
- 
+  widget.onCreateContact(); // Call the callback function to refresh the UI
  }
 
 }

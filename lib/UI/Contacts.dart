@@ -28,7 +28,7 @@ class _ContactsState extends State<Contacts> {
         appBar: AppBar(
           title: Text("Contacts"),
           actions: [
-            AddButton()
+            AddButton(loadUi)
           ],
         ),
         body: isLoading
